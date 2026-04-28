@@ -1,0 +1,9 @@
+{
+  "en": {
+    "loginWrongPassword": "Wrong password",
+    "loginUserDoesNotExist": "User does not exist.",
+    "PlaceOrderPleaseFillOutNameAndCreditcard": "Please fill out Name and Creditcard.",
+    "PlaceOrderThankYouForYourPurchase": "Thank you for your purchase!",
+    "PlaceOrderProductAdded": "Product added"
+  }
+}

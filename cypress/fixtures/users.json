@@ -1,0 +1,16 @@
+{
+  "validUser": {
+    "username": "Taltest123",
+    "password": "Taltest123",
+    "name": "Someone Happy",
+    "country": "Sunnyland",
+    "city": "Cleanland",
+    "creditCardNumber": "1234567",
+    "creditCardMonth": "11",
+    "creditCardYear": "2030"
+  },
+  "invalidUser": {
+    "username": "Taltest123",
+    "password": "wrongpass"
+  }
+}
