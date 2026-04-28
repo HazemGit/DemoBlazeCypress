@@ -1,10 +1,10 @@
 class ProductPage {
     // Selectors
     #productContent = '.product-content'
-    #name = '.name'
-    #price = '.price-container'
+    #name = 'h2.name'
+    #price = 'h3.price-container'
     #desc = '#more-information p'
-    #addToCartButton = "[onclick*='addToCart']"
+    #addToCartButton = "a[onclick*='addToCart']"
 
     getProductName() {
         return cy.get(this.#name).invoke('text')

@@ -28,7 +28,7 @@ describe('Demoblaze purchase tests', () => {
             homePage.clickCategoriesLaptopsLink();
         }
         homePage.clickCartLink()
-        // aseert that we have two products in the cart
+        // assert that we have two products in the cart
         cartPage.assertCountOfProducts(2)
         cartPage.clickPlaceOrderButton()
         // Fill in the form data and continue
@@ -54,7 +54,7 @@ describe('Demoblaze purchase tests', () => {
         productPage.assertProductAdded()
         homePage.goHome()
         homePage.clickCartLink()
-        // aseert that we one laptop in the cart
+        // assert that we one laptop in the cart
         cartPage.assertCountOfProducts(1)
         cartPage.clickPlaceOrderButton()
         cy.fixture("users").then((users) => {
@@ -78,7 +78,7 @@ describe('Demoblaze purchase tests', () => {
         productPage.assertProductAdded()
         homePage.goHome()
         homePage.clickCartLink()
-        // aseert that we one laptop in the cart
+        // assert that we one laptop in the cart
         cartPage.assertCountOfProducts(1)
         cartPage.clickPlaceOrderButton()
         cy.fixture("users").then((users) => {
@@ -92,7 +92,7 @@ describe('Demoblaze purchase tests', () => {
         homePage.clickCartLink()
         cartPage.assertCountOfProducts(1)
     })
-    it('Checks product data consitency between homepage and product details page', () => {
+    it('Checks product data consistency between homepage and product details page', () => {
         // Select any random index of a product
         const productIdx = 3
         homePage.clickCategoriesLaptopsLink()
@@ -106,7 +106,7 @@ describe('Demoblaze purchase tests', () => {
             productPage.getProductDesc().should('eq', product.desc)
         })
     })
-    it('Checks product data consitency between product details and cart pages', () => {
+    it('Checks product data consistency between product details and cart pages', () => {
         // Select any random index of a product
         const productIdx = 3
         homePage.clickCategoriesLaptopsLink()

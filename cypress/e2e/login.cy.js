@@ -14,7 +14,7 @@ describe('Demoblaze Login Tests', () => {
   it('Should login successfully with valid credentials', () => {
     cy.fixture('users').then((users) => {
       loginPage.loginUser(users.validUser.username, users.validUser.password)
-      homePage.assertLoggedinUser(users.validUser.username)
+      homePage.assertLoggedInUser(users.validUser.username)
     })
   })
 
@@ -22,7 +22,7 @@ describe('Demoblaze Login Tests', () => {
     cy.fixture('users').then((users) => {
       loginPage.loginUser(users.invalidUser.username, users.invalidUser.password)
       loginPage.assertWrongPasswordFailure()
-      homePage.assertNoLoggedinUser()
+      homePage.assertNoLoggedInUser()
     })
   })
 
@@ -30,7 +30,7 @@ describe('Demoblaze Login Tests', () => {
     cy.fixture('users').then((users) => {
       loginPage.loginUser('Tal' + Date.now(), users.invalidUser.password)
       loginPage.assertNonExistingUserFailure()
-      homePage.assertNoLoggedinUser()
+      homePage.assertNoLoggedInUser()
     })
   })
 })

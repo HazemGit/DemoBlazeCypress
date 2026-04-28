@@ -5,7 +5,7 @@ class HomePage {
     #mainMenuLogin = '#login2'
     #mainMenuLoggedinUser = '#nameofuser'
     #mainMenuCart = '#cartur'
-    #navCategoriesLaptops = "a[onclick*='notebook']"
+    #navCategoriesLaptops = `a[onclick="byCat('notebook')"]`
     #productCards = '.card'
     #productLinks = '.card .card-title a'
     #productTitles = '.card-title'
@@ -55,12 +55,12 @@ class HomePage {
         cy.get(this.#productCards).should('have.length.least', count)
     }
 
-    assertLoggedinUser(username) {
+    assertLoggedInUser(username) {
         cy.get(this.#mainMenuLoggedinUser)
             .should('be.visible')
             .and('contain', username)
     }
-    assertNoLoggedinUser() {
+    assertNoLoggedInUser() {
         cy.get(this.#mainMenuLoggedinUser)
             .should('not.be.visible')
     }

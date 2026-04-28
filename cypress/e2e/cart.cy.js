@@ -45,13 +45,13 @@ describe('Demoblaze shopping cart tests', () => {
         }
         homePage.clickCartLink()
         cartPage.assertCountOfProducts(2)
-        cartPage.getProductName(1).then((firstPoductName) => {
+        cartPage.getProductName(1).then((firstProductName) => {
             // Delete the second item
             cartPage.clickDeleteLink(2)
             // Now we should have one item in the cart
             cartPage.assertCountOfProducts(1)
             // But did we delete the right item?
-            cartPage.getProductName(1).should('eq', firstPoductName)
+            cartPage.getProductName(1).should('eq', firstProductName)
         })
     })
 

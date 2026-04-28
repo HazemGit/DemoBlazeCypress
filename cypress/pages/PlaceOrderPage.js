@@ -1,7 +1,7 @@
 import cypressConfig from "../../cypress.config"
 
 class PlaceOrderPage {
-  // Selectos
+  // Selectors
   #total = '#totalm'
   #name = '#name'
   #country = '#country'
@@ -10,9 +10,9 @@ class PlaceOrderPage {
   #month = '#month'
   #year = '#year'
   #purchaseButton = 'button[onclick="purchaseOrder()"]'
-  #confirmTitle = '.showSweetAlert.visible > h2'
-  #confirmText = '.showSweetAlert.visible > p'
-  #confirmOkButton = '.showSweetAlert.visible button.confirm'
+  #confirmTitle = 'div.sweet-alert > h2'
+  #confirmText = 'div.sweet-alert p'
+  #confirmOkButton = 'div.sweet-alert button.confirm'
 
   setName(name) {
     // using invoke('val',name) as type sometimes doesn't type the full text at the first field, seems like it's a cypress issue https://github.com/cypress-io/cypress/issues/5480
