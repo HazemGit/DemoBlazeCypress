@@ -14,7 +14,7 @@ describe('Demoblaze purchase tests', () => {
     beforeEach(() => {
         homePage.goHome()
     })
-    it('Purchases multiple laptops beginning to end', () => {
+    it('Can purchase multiple laptops beginning to end', () => {
         homePage.clickCategoriesLaptopsLink();
         // Make sure we have at least two laptops
         homePage.assertProductsCountAtLeast(2);
@@ -93,7 +93,7 @@ describe('Demoblaze purchase tests', () => {
         cartPage.assertCountOfProducts(1)
     })
     it('Checks product data consistency between homepage and product details page', () => {
-        // Select any random index of a product
+        // Select any index of a product to purchase
         const productIdx = 3
         homePage.clickCategoriesLaptopsLink()
         // Make sure that we have at least the number of available products
@@ -107,7 +107,7 @@ describe('Demoblaze purchase tests', () => {
         })
     })
     it('Checks product data consistency between product details and cart pages', () => {
-        // Select any random index of a product
+        // Select any index of a product to purchase
         const productIdx = 3
         homePage.clickCategoriesLaptopsLink()
         // Make sure that we have at least the number of available products
@@ -121,6 +121,28 @@ describe('Demoblaze purchase tests', () => {
             cartPage.assertCountOfProducts(1)
             cartPage.getProductName(1).should('eq', product.name)
             cartPage.getProductPrice(1).should('eq', product.price)
+        })
+    })
+
+    it('Checks amount consistency between cart and place order pages', () => {
+        homePage.clickCategoriesLaptopsLink();
+        // Make sure we have at least two laptops
+        homePage.assertProductsCountAtLeast(2);
+        // Buy 2 laptops
+        for (let i = 1; i <= 2; i++) {
+            // Buy the first laptop
+            homePage.clickProductLink(i)
+            productPage.clickAddToCart()
+            productPage.assertProductAdded()
+            homePage.goHome()
+            homePage.clickCategoriesLaptopsLink();
+        }
+        homePage.clickCartLink()
+        cartPage.assertCountOfProducts(2)
+        // confirm the total price
+        cartPage.getTotalPrice().then((total) => {
+            cartPage.clickPlaceOrderButton()
+            placeOrderPage.getTotalAmount().should('eq', total)
         })
     })
 })

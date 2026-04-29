@@ -1,7 +1,7 @@
 import cypressConfig from "../../cypress.config"
 
 class CartPage {
-  // Selectos
+  // Selectors
   #productsTable = '#tbodyid'
   #totalPrice = '#totalp'
   #placeOrderButton = 'button[data-target="#orderModal"]'
@@ -19,6 +19,10 @@ class CartPage {
     return cy.get(this.#productsTable).find('tr').eq(idx -1).find('td').eq(this.#productsTableColumns.PRICE - 1)
       .invoke('text')
       .then((text) => text.trim())
+  }
+
+  getTotalPrice() {
+    return cy.get(this.#totalPrice).invoke('text')
   }
 
   clickPlaceOrderButton() {
